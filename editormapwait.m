@@ -1,0 +1,6 @@
+function editormapwait
+h=figure;
+%uiwait(h)
+colormapeditor
+%uiresume(h)
+disp('done');

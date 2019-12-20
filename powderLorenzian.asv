@@ -1,0 +1,23 @@
+function y=powderLorenzian (q,A,Lii,Lp,q0)
+lp2=Lp^2;  %l_par^2
+li2=Lii^2; %l_|| ^2
+q2=q.^2;
+pi2=6.283185307179586; %2*pi
+apb=2*q2.*(lp2.*(1-q0./q)-li2); %2a+b
+b=2*lp2*q*q0;
+eta=4*q2.*(lp2-li2).*(1+li2*q2-lp2*q0^2)-b.^2;
+sqeta=sqrt(abs(eta));
+[e=find
+if (eta==0)
+    y=2*((1./b)-(1./apb));
+elseif (eta>0)
+    y=sqeta.*(atan(apb./sqeta)-atan(b./sqeta));
+else
+    y=sqeta.*(log((apb-sqeta)./(apb+sqeta))-log((b-sqeta)./(b+sqeta)));
+end
+
+y=y*pi2*A;
+return
+    
+    
+
